@@ -2,10 +2,13 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const session = require('express-session');
+const KnexSessionStore = require('connect-session-knex')(session);
 require('dotenv').config()
 
 const app = express();
 const server = http.createServer(app);
+
+const db = require('./database/dbConfig');
 
 //routes
 const eventRoutes = require('./api/events/event.routes');
@@ -23,7 +26,13 @@ const sessionConfig = {
         secure: false, //over https
         maxAge: 1000 * 60 * 10
     },
-
+    store: new KnexSessionStore({
+        tablename: 'session',
+        sidfieldname: 'sid',
+        knex: db,
+        createtable: true,
+        clearInterval: 1000 * 60 * 60  //removes only expired
+    })
 }
 
 const corsConfig = {
