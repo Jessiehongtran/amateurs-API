@@ -29,6 +29,7 @@ const sessionConfig = {
 app.use(session(sessionConfig))
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true})); 
 app.use('/events', eventRoutes);
 app.use('/users', userRoutes)
 app.use('/', (req,res) => {
