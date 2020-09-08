@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const session = require('express-session');
+require('dotenv').config()
 
 const app = express();
 const server = http.createServer(app);
@@ -13,8 +14,8 @@ const userRoutes = require('./api/users/user.routes');
 const PORT = process.env.PORT || 8001;
 
 const sessionConfig = {
-    secret: 'nobody-tosses%a.dwarf.!',
-    name: 'monkey',
+    secret: process.env.SESSION_SECRET,
+    name: process.env.SESSION_NAME,
     httpOnly: true,
     resave: false,
     saveUnitialized: false,
