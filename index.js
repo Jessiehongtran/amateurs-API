@@ -26,15 +26,20 @@ const sessionConfig = {
 
 }
 
+const corsConfig = {
+    credentials: true,
+    origin: 'https://amateurs.vercel.app'
+}
+
 app.use(session(sessionConfig))
-app.use(cors());
+app.use(cors(corsConfig));
 app.use(express.json());
 app.use('/events', eventRoutes);
 app.use('/users', userRoutes)
 app.use('/', (req,res) => {
     res.send('helloooo')
 })
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
+server.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
 
 
 

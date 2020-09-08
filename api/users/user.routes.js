@@ -44,7 +44,7 @@ router.get('/:userId', async (req,res) => {
         const user = await findUserBy({id: userId})
         res.status(200).json(user)
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
@@ -62,7 +62,7 @@ router.post('/login', (req,res) => {
             }
         })
         .catch(err => {
-            res.status(500).json(err)
+            res.status(500).json(err.message)
         })
 
 })
@@ -79,7 +79,7 @@ router.post('/logout', async (req,res) => {
             }
         })
     } catch(err) {
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
@@ -90,7 +90,7 @@ router.delete('/:userId', async (req,res) => {
         await removeUser(userId)
         res.status(200).json({message: 'Deleted 1 user'})
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
@@ -102,7 +102,7 @@ router.patch('/:userId', async (req,res) => {
         await updateUser(userId, change)
         res.status(200).json({message: 'Updated 1 user'})
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 

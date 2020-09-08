@@ -16,7 +16,7 @@ router.get('/', async (req,res) => {
         const events = await getEvents()
         res.status(200).json(events)
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
@@ -27,7 +27,7 @@ router.post('/participants', async (req,res) => {
         const id = await addEventParticipants(event_people)
         res.status(200).json(id)
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
@@ -38,7 +38,7 @@ router.get('/participants/:eventId', async (req,res) => {
         const people = await getEventParticipants(eventId)
         res.status(200).json(people)
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
@@ -49,7 +49,7 @@ router.post('/', async (req,res) => {
         const eventId = await addEvent(event)
         res.status(200).json(eventId)
     } catch (err){
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 
