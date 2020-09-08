@@ -31,6 +31,9 @@ app.use(cors());
 app.use(express.json());
 app.use('/events', eventRoutes);
 app.use('/users', userRoutes)
+app.user('/', (req,res) => {
+    res.send('helloooo')
+})
 server.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
 
 
