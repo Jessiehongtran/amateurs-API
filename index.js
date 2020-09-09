@@ -25,7 +25,7 @@ const sessionConfig = {
         secure: app.get('env') === 'production', //over https
         maxAge: 1000 * 60 * 10,
         httpOnly: true,
-        sameSite: false
+        sameSite: 'none'
     },
     proxy: true,
     store: new KnexSessionStore({
