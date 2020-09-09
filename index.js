@@ -23,8 +23,9 @@ const sessionConfig = {
     resave: false,
     saveUnitialized: false,
     cookie: {
-        secure: false, //over https
-        maxAge: 1000 * 60 * 10
+        secure: app.get('env') === 'production', //over https
+        maxAge: 1000 * 60 * 10,
+        sameSite: false
     },
     store: new KnexSessionStore({
         tablename: 'session',
@@ -48,7 +49,6 @@ const corsConfig = {
     }
 }
 
-console.log(process.env.NODE_ENV)
 
 app.use(session(sessionConfig))
 app.use(cors(corsConfig));
