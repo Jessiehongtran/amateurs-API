@@ -35,10 +35,20 @@ const sessionConfig = {
     })
 }
 
+var originList = ['http://localhost:3000', 'https://amateurs.vercel.app']
+
 const corsConfig = {
     credentials: true,
-    origin: 'https://amateurs.vercel.app'
+    origin: function (origin, callback) {
+        if (originList.indexOf(origin) !== -1) {
+        callback(null, true)
+        } else {
+        callback(new Error('Not allowed by CORS'))
+        }
+    }
 }
+
+console.log(process.env.NODE_ENV)
 
 app.use(session(sessionConfig))
 app.use(cors(corsConfig));

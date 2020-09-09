@@ -56,7 +56,10 @@ router.post('/login', (req,res) => {
             console.log(user)
             if (user && bcrypt.compareSync(creds.password, user.password)){
                 req.session.userId = user.id
-                res.status(200).json({welcome: user.email})
+                res.status(200).json({
+                    welcome: user.email,
+                    
+                })
             } else {
                 res.status(401).json({message: 'you shall not pass!'});
             }
