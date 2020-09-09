@@ -24,9 +24,7 @@ const sessionConfig = {
     saveUnitialized: false,
     cookie: {
         secure: app.get('env') === 'production', //over https
-        maxAge: 1000 * 60 * 10,
-        sameSite: false,
-        path: '/users/login'
+        maxAge: 1000 * 60 * 10
     },
     store: new KnexSessionStore({
         tablename: 'session',
