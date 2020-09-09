@@ -39,13 +39,7 @@ var originList = ['http://localhost:3000', 'https://amateurs.vercel.app']
 
 const corsConfig = {
     credentials: true,
-    origin: function (origin, callback) {
-        if (originList.indexOf(origin) !== -1) {
-        callback(null, true)
-        } else {
-        callback(new Error('Not allowed by CORS'))
-        }
-    }
+    origin: app.get('env') === 'production' ? 'https://amateurs.vercel.app' : 'http://localhost:3000'
 }
 
 
