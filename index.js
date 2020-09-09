@@ -26,6 +26,7 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 10,
         httpOnly: true
     },
+    proxy: true,
     store: new KnexSessionStore({
         tablename: 'session',
         sidfieldname: 'sid',
