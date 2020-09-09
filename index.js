@@ -19,12 +19,12 @@ const PORT = process.env.PORT || 8001;
 const sessionConfig = {
     secret: process.env.SESSION_SECRET,
     name: process.env.SESSION_NAME,
-    httpOnly: true,
     resave: false,
     saveUnitialized: false,
     cookie: {
         secure: app.get('env') === 'production', //over https
-        maxAge: 1000 * 60 * 10
+        maxAge: 1000 * 60 * 10,
+        httpOnly: true
     },
     store: new KnexSessionStore({
         tablename: 'session',
