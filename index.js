@@ -24,8 +24,7 @@ const sessionConfig = {
     saveUnitialized: false,
     cookie: {
         secure: app.get('env') === 'production', //over https
-        maxAge: 1000 * 60 * 10,
-        domain: 'https://amateurs.vercel.app'
+        maxAge: 1000 * 60 * 10
     },
     store: new KnexSessionStore({
         tablename: 'session',
