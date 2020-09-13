@@ -10,6 +10,8 @@ const {
     updateUser
 } = require('./user.model');
 
+
+
 //GET users 
 //only if the device is logged in
 router.get('/', protected, async (req,res) => {  
@@ -21,6 +23,8 @@ router.get('/', protected, async (req,res) => {
     }
     
 })
+
+
 
 //POST user
 router.post('/', async (req,res) => {
