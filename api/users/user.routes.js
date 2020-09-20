@@ -14,7 +14,7 @@ const {
 
 //GET users 
 //only if the device is logged in
-router.get('/', protected, async (req,res) => {  
+router.get('/', async (req,res) => {  
     try {
         const users = await getUsers() 
         res.status(200).json(users)
