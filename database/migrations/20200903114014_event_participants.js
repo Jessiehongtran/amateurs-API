@@ -7,7 +7,7 @@ exports.up = function(knex) {
            .notNullable()
            .unsigned()
            .references('id')
-           .inTable('users')
+           .inTable('events')
            .onDelete('CASCADE')
            .onUpdate('CASCADE')
         tbl.integer('participant_id')
