@@ -15,6 +15,7 @@ const db = require('./database/dbConfig');
 const eventRoutes = require('./api/events/event.routes');
 const userRoutes = require('./api/users/user.routes');
 const imageRoutes = require('./api/images/image.routes');
+const commentRoutes = require('./api/comments/comment.routes');
 
 const PORT = process.env.PORT || 8001;
 
@@ -53,6 +54,7 @@ app.use(express.json());
 app.use('/events', eventRoutes);
 app.use('/users', userRoutes);
 app.use('/images', imageRoutes);
+app.use('/comments', commentRoutes);
 app.use('/', (req,res) => {
     res.send('helloooo')
 })

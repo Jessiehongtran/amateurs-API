@@ -11,6 +11,7 @@ exports.up = function(knex) {
            .onDelete('CASCADE')
            .onUpdate('CASCADE')
         tbl.integer('participant_id')
+           .unique()
            .notNullable()
            .unsigned()
            .references('id')
