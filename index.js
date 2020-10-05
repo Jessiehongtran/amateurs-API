@@ -44,7 +44,7 @@ var originList = ['http://localhost:3000', 'https://amateurs.vercel.app']
 
 const corsConfig = {
     credentials: true,
-    origin: app.get('env') === 'production' ? 'https://amateurs.vercel.app' : 'http://localhost:3000'
+    origin: app.get('env') === 'production' ? 'https://amateurs.htran2.vercel.app' : 'http://localhost:3000'
 }
 
 app.use(formData.parse())
